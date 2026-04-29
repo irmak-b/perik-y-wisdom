@@ -47,16 +47,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        parchment: {
+          DEFAULT: "hsl(var(--parchment))",
+          deep: "hsl(var(--parchment-deep))",
+          edge: "hsl(var(--parchment-edge))",
         },
+        fairy: {
+          pink: "hsl(var(--fairy-pink))",
+          yellow: "hsl(var(--fairy-yellow))",
+          green: "hsl(var(--fairy-green))",
+          mint: "hsl(var(--fairy-mint))",
+          lavender: "hsl(var(--fairy-lavender))",
+          navy: "hsl(var(--fairy-navy))",
+        },
+      },
+      backgroundImage: {
+        "gradient-meadow": "var(--gradient-meadow)",
+        "gradient-twilight": "var(--gradient-twilight)",
+        "gradient-dawn": "var(--gradient-dawn)",
+      },
+      fontFamily: {
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        fairy: ["Caveat", "cursive"],
+        body: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -2,104 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* HEARTH — Peri Köyü design system. All colors HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Vintage parchment palette */
+    --background: 42 38% 92%;            /* aged cream */
+    --foreground: 220 35% 14%;           /* deep ink */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --parchment: 40 45% 88%;
+    --parchment-deep: 36 35% 78%;
+    --parchment-edge: 30 25% 60%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 42 50% 95%;
+    --card-foreground: 220 35% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 42 50% 95%;
+    --popover-foreground: 220 35% 14%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Lime — bilgelik / büyü */
+    --primary: 78 55% 45%;
+    --primary-foreground: 42 50% 96%;
+    --primary-glow: 78 65% 60%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Lacivert — gece, derinlik */
+    --secondary: 220 50% 22%;
+    --secondary-foreground: 42 50% 95%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 40 25% 82%;
+    --muted-foreground: 220 20% 35%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Accent — soft fairy pink */
+    --accent: 340 55% 78%;
+    --accent-foreground: 220 35% 14%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 42 50% 96%;
 
-    --radius: 0.5rem;
+    --border: 36 30% 70%;
+    --input: 36 30% 75%;
+    --ring: 78 55% 45%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 1rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Module accents (peri kartları) */
+    --fairy-pink: 340 60% 75%;
+    --fairy-yellow: 48 75% 70%;
+    --fairy-green: 145 45% 65%;
+    --fairy-mint: 165 40% 75%;
+    --fairy-lavender: 270 35% 75%;
+    --fairy-navy: 220 50% 30%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Gradients */
+    --gradient-meadow: linear-gradient(135deg, hsl(78 55% 55% / 0.15), hsl(145 45% 65% / 0.2));
+    --gradient-twilight: linear-gradient(160deg, hsl(220 50% 22%), hsl(270 35% 35%));
+    --gradient-dawn: linear-gradient(180deg, hsl(42 50% 95%), hsl(40 45% 88%));
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 35% 14% / 0.12);
+    --shadow-card: 0 8px 30px -8px hsl(220 35% 14% / 0.18);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Motion */
+    --transition-fairy: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 220 40% 10%;
+    --foreground: 42 50% 92%;
+    --card: 220 40% 14%;
+    --card-foreground: 42 50% 92%;
+    --popover: 220 40% 14%;
+    --popover-foreground: 42 50% 92%;
+    --primary: 78 60% 60%;
+    --primary-foreground: 220 40% 10%;
+    --secondary: 220 35% 20%;
+    --secondary-foreground: 42 50% 92%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 42 20% 70%;
+    --accent: 340 45% 60%;
+    --accent-foreground: 42 50% 92%;
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 78 60% 60%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
+  html { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "dlig" 1;
   }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .font-fairy { font-family: 'Caveat', 'Cormorant Garamond', cursive; }
+  .font-body { font-family: 'Inter', system-ui, sans-serif; }
+}
+
+@layer components {
+  .parchment {
+    background-color: hsl(var(--parchment));
+    background-image:
+      radial-gradient(at 15% 20%, hsl(var(--fairy-pink) / 0.08) 0px, transparent 50%),
+      radial-gradient(at 85% 80%, hsl(var(--primary) / 0.08) 0px, transparent 50%);
+  }
+  .ink-shadow { text-shadow: 0 1px 0 hsl(var(--parchment-edge) / 0.4); }
+  .fairy-card {
+    @apply rounded-2xl border border-border/60 bg-card transition-all;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-fairy);
+  }
+  .fairy-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+}
+
+@layer utilities {
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-float-slow { animation: float 9s ease-in-out infinite; }
+  .animate-shimmer { animation: shimmer 3s linear infinite; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
