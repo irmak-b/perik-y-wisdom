@@ -14,16 +14,188 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cycle_entries: {
+        Row: {
+          created_at: string
+          end_date: string | null
+          flow: Database["public"]["Enums"]["flow_intensity"] | null
+          id: string
+          notes: string | null
+          start_date: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          end_date?: string | null
+          flow?: Database["public"]["Enums"]["flow_intensity"] | null
+          id?: string
+          notes?: string | null
+          start_date: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          end_date?: string | null
+          flow?: Database["public"]["Enums"]["flow_intensity"] | null
+          id?: string
+          notes?: string | null
+          start_date?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avg_cycle_length: number | null
+          avg_period_length: number | null
+          birth_year: number | null
+          created_at: string
+          display_name: string | null
+          id: string
+          life_stage: Database["public"]["Enums"]["life_stage"]
+          onboarding_completed: boolean
+          updated_at: string
+        }
+        Insert: {
+          avg_cycle_length?: number | null
+          avg_period_length?: number | null
+          birth_year?: number | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          life_stage?: Database["public"]["Enums"]["life_stage"]
+          onboarding_completed?: boolean
+          updated_at?: string
+        }
+        Update: {
+          avg_cycle_length?: number | null
+          avg_period_length?: number | null
+          birth_year?: number | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          life_stage?: Database["public"]["Enums"]["life_stage"]
+          onboarding_completed?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      symptom_logs: {
+        Row: {
+          created_at: string
+          id: string
+          log_date: string
+          mood: string | null
+          notes: string | null
+          pain_level: number | null
+          symptoms: string[] | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          log_date: string
+          mood?: string | null
+          notes?: string | null
+          pain_level?: number | null
+          symptoms?: string[] | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          log_date?: string
+          mood?: string | null
+          notes?: string | null
+          pain_level?: number | null
+          symptoms?: string[] | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      wisdom_cards: {
+        Row: {
+          accent_color: string | null
+          body: string
+          category: string
+          created_at: string
+          fairy_name: string | null
+          id: string
+          letter: string
+          sort_order: number | null
+          subtitle: string | null
+          title: string
+        }
+        Insert: {
+          accent_color?: string | null
+          body: string
+          category: string
+          created_at?: string
+          fairy_name?: string | null
+          id?: string
+          letter: string
+          sort_order?: number | null
+          subtitle?: string | null
+          title: string
+        }
+        Update: {
+          accent_color?: string | null
+          body?: string
+          category?: string
+          created_at?: string
+          fairy_name?: string | null
+          id?: string
+          letter?: string
+          sort_order?: number | null
+          subtitle?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      flow_intensity: "spotting" | "light" | "medium" | "heavy"
+      life_stage:
+        | "menstrual"
+        | "perimenopause"
+        | "menopause"
+        | "pcos"
+        | "pregnancy"
+        | "postpartum"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +322,17 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      flow_intensity: ["spotting", "light", "medium", "heavy"],
+      life_stage: [
+        "menstrual",
+        "perimenopause",
+        "menopause",
+        "pcos",
+        "pregnancy",
+        "postpartum",
+      ],
+    },
   },
 } as const
