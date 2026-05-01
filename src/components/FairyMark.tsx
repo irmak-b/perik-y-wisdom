@@ -2,16 +2,16 @@ import fairies from "@/assets/fairies-group.png";
 
 interface Props {
   className?: string;
-  /** crop a single fairy from the group sprite */
-  variant?: "pink" | "yellow" | "green" | "mint";
+  /** crop a single fairy from the group sprite (now 2-fairy transparent PNG) */
+  variant?: "pink" | "mint";
 }
 
-// Approximate crop windows in % for each fairy in fairies-group.png
+// Crop windows in % for each fairy in fairies-group.png (transparent, 2 fairies)
 const crops: Record<string, { x: number; y: number; w: number; h: number }> = {
-  pink: { x: 0, y: 12, w: 22, h: 50 },
-  yellow: { x: 22, y: 0, w: 26, h: 50 },
-  green: { x: 38, y: 18, w: 28, h: 55 },
-  mint: { x: 70, y: 8, w: 30, h: 55 },
+  // bottom-left pink ballerina fairy
+  pink: { x: 4, y: 30, w: 42, h: 68 },
+  // top-right mint/teal fairy
+  mint: { x: 68, y: 2, w: 30, h: 48 },
 };
 
 export const FairyMark = ({ className = "w-16 h-16", variant = "pink" }: Props) => {
@@ -22,7 +22,7 @@ export const FairyMark = ({ className = "w-16 h-16", variant = "pink" }: Props) 
       style={{
         backgroundImage: `url(${fairies})`,
         backgroundSize: `${(100 / c.w) * 100}% auto`,
-        backgroundPosition: `${(c.x / (100 - c.w)) * 100}% ${(c.y / (100 - c.h)) * 100}%`,
+        backgroundPosition: `${(c.x / Math.max(1, 100 - c.w)) * 100}% ${(c.y / Math.max(1, 100 - c.h)) * 100}%`,
         backgroundRepeat: "no-repeat",
       }}
       aria-hidden
