@@ -5,7 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { differenceInDays, format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { Calendar, BookOpen, Sparkles } from "lucide-react";
-import fairies from "@/assets/fairies-group.png";
+import { FairyMark } from "@/components/FairyMark";
 
 export default function Home() {
   const { user } = useAuth();
@@ -51,7 +51,10 @@ export default function Home() {
             {format(today, "d MMMM EEEE", { locale: tr })}
           </p>
         </div>
-        <img src={fairies} alt="" className="h-20 -mr-2 animate-float-slow" />
+        <div className="relative h-24 w-24 -mr-2 shrink-0 animate-float-slow" aria-hidden>
+          <FairyMark variant="mint" className="absolute right-1 top-0 h-14 w-14" />
+          <FairyMark variant="pink" className="absolute bottom-0 left-0 h-20 w-20" />
+        </div>
       </div>
 
       {/* Cycle ring card */}
