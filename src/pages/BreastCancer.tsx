@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowLeft, Info, Hand, AlertCircle, Stethoscope, Sparkles } from "lucide-react";
+import fairyStar from "@/assets/fairy-star.png";
 
 type Section = "info" | "exam" | "symptoms" | "diagnosis";
 
