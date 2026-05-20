@@ -38,7 +38,7 @@ export default function CycleTracker() {
     (async () => {
       const [{ data: p }, { data: c }] = await Promise.all([
         supabase.from("profiles").select("avg_cycle_length, avg_period_length").eq("id", user.id).maybeSingle(),
-        supabase.from("cycle_entries").select("id, start_date, end_date").eq("user_id", user.id).order("start_date"),
+        supabase.from("cycle_entries").select("id, start_date, end_date, created_at").eq("user_id", user.id).order("created_at"),
       ]);
       if (p) { setCycleLen(p.avg_cycle_length ?? 28); setPeriodLen(p.avg_period_length ?? 5); }
       if (c) setCycles(c);
