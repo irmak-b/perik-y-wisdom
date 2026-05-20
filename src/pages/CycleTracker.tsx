@@ -146,10 +146,16 @@ export default function CycleTracker() {
         <DialogContent className="bg-card border-border/60">
           <DialogHeader>
             <DialogTitle className="font-display text-2xl text-secondary">
-              {open && format(open, "d MMMM", { locale: tr })}
+              {open && format(open, "d MMMM yyyy", { locale: tr })}
             </DialogTitle>
+            <p className="font-fairy text-base text-primary -mt-1">
+              Bu günü regl başlangıcı olarak işaretle
+            </p>
           </DialogHeader>
           <div className="space-y-4">
+            <p className="text-sm text-muted-foreground font-body">
+              Takvim, son seçtiğin regl başlangıç gününe göre yeniden şekillenecek. Yanlış güne dokunduysan farklı bir güne dokunup yeniden kaydedebilirsin.
+            </p>
             <div>
               <Label className="font-display text-secondary">Ağrı seviyesi: {pain}/10</Label>
               <input
@@ -162,7 +168,7 @@ export default function CycleTracker() {
               <Label className="font-display text-secondary">Notlar</Label>
               <Textarea
                 value={note} onChange={(e) => setNote(e.target.value)}
-                placeholder="Bugün nasıl hissediyorsun?"
+                placeholder="O gün nasıl hissediyordun?"
                 className="bg-background/60 border-parchment-edge"
               />
             </div>
@@ -170,7 +176,7 @@ export default function CycleTracker() {
               onClick={() => open && logPeriod(open)}
               className="w-full bg-secondary hover:bg-secondary/90 rounded-full h-11 font-display"
             >
-              Kaydet 🌸
+              {open && format(open, "d MMMM", { locale: tr })} gününü regl başlangıcı yap 🌸
             </Button>
           </div>
         </DialogContent>
