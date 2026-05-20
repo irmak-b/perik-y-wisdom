@@ -82,7 +82,7 @@ export default function Home() {
         <ModuleCard to="/app/cycle" icon={Calendar} title="Mevsimler Patikası" desc="Döngü takvimi" tone="lime" />
         <ModuleCard to="/app/wisdom" icon={BookOpen} title="Bilgelik Kütüphanesi" desc="Peri kartları" tone="navy" />
         <ModuleCard to="/app/cycle" icon={Sparkles} title="Şifa Korusu" desc="Yakında" tone="pink" disabled />
-        <ModuleCard to="/app/wisdom" icon={Sparkles} title="Yıldız Parşömeni" desc="Yakında" tone="lavender" disabled />
+        <ModuleCard to="/app/star" icon={Sparkles} title="Yıldız Parşömeni" desc="Kendini tanı" tone="lavender" />
       </div>
 
       <p className="font-fairy text-center text-xl text-secondary/60 mt-10">
