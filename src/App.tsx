@@ -12,6 +12,9 @@ import Home from "./pages/Home";
 import CycleTracker from "./pages/CycleTracker";
 import WisdomLibrary from "./pages/WisdomLibrary";
 import Profile from "./pages/Profile";
+import StarScroll from "./pages/StarScroll";
+import BreastCancer from "./pages/BreastCancer";
+import CervicalCancer from "./pages/CervicalCancer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +34,9 @@ const App = () => (
               <Route index element={<Home />} />
               <Route path="cycle" element={<CycleTracker />} />
               <Route path="wisdom" element={<WisdomLibrary />} />
+              <Route path="star" element={<StarScroll />} />
+              <Route path="star/breast" element={<BreastCancer />} />
+              <Route path="star/cervical" element={<CervicalCancer />} />
               <Route path="profile" element={<Profile />} />
             </Route>
             <Route path="*" element={<NotFound />} />
