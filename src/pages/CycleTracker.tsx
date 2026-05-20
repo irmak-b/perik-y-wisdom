@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
-interface Cycle { id: string; start_date: string; end_date: string | null; }
+interface Cycle { id: string; start_date: string; end_date: string | null; created_at?: string; }
 
 const phaseColor = (day: number, cycleLen: number) => {
   if (day <= 5) return "bg-destructive/70 text-destructive-foreground"; // menstrual
