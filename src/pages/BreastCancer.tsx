@@ -31,7 +31,14 @@ export default function BreastCancer() {
           <ArrowLeft className="w-4 h-4" /> yıldız parşömeni
         </Link>
 
-        <header className="text-center mt-4 mb-6">
+        <header className="relative text-center mt-4 mb-6">
+          <img
+            src={fairyStar}
+            alt=""
+            aria-hidden
+            className="absolute -top-2 -right-2 w-24 h-24 object-contain pointer-events-none select-none animate-float-slow drop-shadow-md"
+            draggable={false}
+          />
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card/60 backdrop-blur">
             <span className="w-2 h-2 rounded-full bg-fairy-pink" />
             <span className="font-fairy text-base text-secondary/80">pembe kurdele</span>
