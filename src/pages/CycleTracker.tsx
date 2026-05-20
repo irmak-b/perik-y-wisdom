@@ -75,7 +75,7 @@ export default function CycleTracker() {
     }
     toast.success("Kaydedildi 🌸");
     setOpen(null); setNote(""); setPain(0);
-    const { data } = await supabase.from("cycle_entries").select("id, start_date, end_date").eq("user_id", user.id).order("start_date");
+    const { data } = await supabase.from("cycle_entries").select("id, start_date, end_date, created_at").eq("user_id", user.id).order("created_at");
     if (data) setCycles(data);
   };
 
