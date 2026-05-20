@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Sparkles, Heart, Flower2 } from "lucide-react";
+import fairyStar from "@/assets/fairy-star.png";
 
 export default function StarScroll() {
   return (
@@ -27,6 +28,13 @@ export default function StarScroll() {
             }}
           >
             <Heart className="absolute -right-4 -bottom-4 w-32 h-32 text-fairy-pink/30" strokeWidth={1} />
+            <img
+              src={fairyStar}
+              alt=""
+              aria-hidden
+              draggable={false}
+              className="absolute bottom-2 right-2 w-16 h-16 object-contain pointer-events-none select-none drop-shadow-md animate-float-slow"
+            />
             <div className="relative">
               <p className="font-fairy text-2xl text-secondary/70">pembe kurdele</p>
               <h2 className="font-display text-3xl text-secondary leading-tight mt-1">
