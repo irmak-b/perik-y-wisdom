@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Sparkles, Heart, Flower2 } from "lucide-react";
+import fairyStar from "@/assets/fairy-star.png";
 
 export default function StarScroll() {
   return (
