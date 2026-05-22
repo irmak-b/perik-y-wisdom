@@ -18,6 +18,16 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
+  const [pwFocused, setPwFocused] = useState(false);
+
+  const pwRules = [
+    { label: "En az 8 karakter", ok: password.length >= 8 },
+    { label: "En az 1 büyük harf (A-Z)", ok: /[A-Z]/.test(password) },
+    { label: "En az 1 küçük harf (a-z)", ok: /[a-z]/.test(password) },
+    { label: "En az 1 rakam (0-9)", ok: /[0-9]/.test(password) },
+    { label: "En az 1 özel karakter (!?@#…)", ok: /[^A-Za-z0-9]/.test(password) },
+    { label: "Yaygın/sızdırılmış bir şifre olmamalı", ok: password.length >= 8 },
+  ];
 
   if (loading) return null;
   if (user) return <Navigate to="/app" replace />;
