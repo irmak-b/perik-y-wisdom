@@ -19,6 +19,7 @@ export default function Auth() {
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const [pwFocused, setPwFocused] = useState(false);
+  const [pwTouched, setPwTouched] = useState(false);
 
   const pwRules = [
     { label: "En az 8 karakter", ok: password.length >= 8 },
@@ -106,11 +107,15 @@ export default function Auth() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              onFocus={() => setPwFocused(true)}
+              onPointerDown={() => setPwTouched(true)}
+              onFocus={() => {
+                setPwFocused(true);
+                setPwTouched(true);
+              }}
               onBlur={() => setPwFocused(false)}
               className="bg-background/70 border-parchment-edge"
             />
-            {mode === "signup" && (pwFocused || password.length > 0) && (
+            {mode === "signup" && (pwFocused || pwTouched || password.length > 0) && (
               <div className="mt-2 rounded-md border border-parchment-edge bg-background/60 p-3 text-xs space-y-1">
                 <p className="font-display text-secondary mb-1">Şifre kuralları</p>
                 {pwRules.map((r) => (
