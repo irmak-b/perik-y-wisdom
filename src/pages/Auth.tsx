@@ -103,11 +103,30 @@ export default function Auth() {
             <Input
               type="password"
               required
-              minLength={6}
+              minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onFocus={() => setPwFocused(true)}
+              onBlur={() => setPwFocused(false)}
               className="bg-background/70 border-parchment-edge"
             />
+            {mode === "signup" && (pwFocused || password.length > 0) && (
+              <div className="mt-2 rounded-md border border-parchment-edge bg-background/60 p-3 text-xs space-y-1">
+                <p className="font-display text-secondary mb-1">Şifre kuralları</p>
+                {pwRules.map((r) => (
+                  <div
+                    key={r.label}
+                    className={`flex items-center gap-2 ${r.ok ? "text-primary" : "text-muted-foreground"}`}
+                  >
+                    <span aria-hidden>{r.ok ? "✓" : "•"}</span>
+                    <span>{r.label}</span>
+                  </div>
+                ))}
+                <p className="pt-1 text-[10px] text-muted-foreground italic">
+                  İpucu: "123456", "password", "qwerty" gibi yaygın/sızdırılmış şifreler güvenlik sistemimiz tarafından reddedilir.
+                </p>
+              </div>
+            )}
           </div>
           <Button
             type="submit"
