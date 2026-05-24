@@ -14,6 +14,7 @@ import WisdomLibrary from "./pages/WisdomLibrary";
 import Profile from "./pages/Profile";
 import StarScroll from "./pages/StarScroll";
 import HealingGrove from "./pages/HealingGrove";
+import LifeNest from "./pages/LifeNest";
 import BreastCancer from "./pages/BreastCancer";
 import CervicalCancer from "./pages/CervicalCancer";
 import NotFound from "./pages/NotFound";
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="cycle" element={<CycleTracker />} />
               <Route path="wisdom" element={<WisdomLibrary />} />
               <Route path="grove" element={<HealingGrove />} />
+              <Route path="nest" element={<LifeNest />} />
               <Route path="star" element={<StarScroll />} />
               <Route path="star/breast" element={<BreastCancer />} />
               <Route path="star/cervical" element={<CervicalCancer />} />
