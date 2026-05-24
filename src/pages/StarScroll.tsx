@@ -6,8 +6,9 @@ export default function StarScroll() {
   return (
     <div className="px-5 pt-10 pb-24">
       <header className="text-center mb-8">
-        <p className="font-fairy text-2xl text-primary">yıldız parşömeni</p>
-        <h1 className="font-display text-4xl text-secondary tracking-wide">Bedenini Tanı</h1>
+        <h1 className="font-display text-4xl text-secondary tracking-wide">Yıldız Parşömeni</h1>
+        <p className="font-fairy text-2xl text-primary mt-1">Bedenini Tanı</p>
+
         <p className="font-display italic text-secondary/70 text-sm mt-3 max-w-xs mx-auto">
           Erken fark etmek, kendine en büyük armağanın. Hangi parşömeni açmak istersin?
         </p>

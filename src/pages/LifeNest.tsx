@@ -3,6 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import { Baby, HeartPulse, Brain, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { FairyMark } from "@/components/FairyMark";
+
 
 type CategoryKey = "bakim" | "izlenim" | "mental" | "lohusalik";
 
@@ -200,11 +202,16 @@ export default function LifeNest() {
     <div className="px-5 pt-10 pb-6">
       {!activeCat ? (
         <>
-          <p className="font-fairy text-3xl text-primary leading-none">yaşam</p>
-          <h1 className="font-display text-4xl text-secondary -mt-1">Yuvası</h1>
-          <p className="font-body text-sm text-muted-foreground mt-2">
-            Annelik ve bebek bakımı için adım adım rehberler.
-          </p>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h1 className="font-display text-4xl text-secondary tracking-wide">Yaşam Yuvası</h1>
+              <p className="font-fairy text-xl text-primary mt-2">
+                Annelik ve bebek bakımı için adım adım rehberler.
+              </p>
+            </div>
+            <FairyMark variant="mother" className="w-24 h-24 shrink-0 animate-float-slow" />
+          </div>
+
 
           <div className="grid grid-cols-2 gap-3 mt-6">
             {categories.map((c) => {
