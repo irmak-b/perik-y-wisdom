@@ -83,6 +83,9 @@ export default function Home() {
         <ModuleCard to="/app/wisdom" icon={BookOpen} title="Bilgelik Kütüphanesi" desc="Peri kartları" tone="navy" />
         <ModuleCard to="/app/grove" icon={Sparkles} title="Şifa Korusu" desc="Egzersiz & nefes" tone="pink" />
         <ModuleCard to="/app/star" icon={Sparkles} title="Yıldız Parşömeni" desc="Kendini tanı" tone="lavender" />
+        {(stage === "pregnancy" || stage === "postpartum") && (
+          <ModuleCard to="/app/nest" icon={Sparkles} title="Yaşam Yuvası" desc="Annelik rehberi" tone="pink" />
+        )}
       </div>
 
       <p className="font-fairy text-center text-xl text-secondary/60 mt-10">
