@@ -226,9 +226,13 @@ export default function HealingGrove() {
 
   return (
     <div className="px-5 pt-10 pb-24">
-      <header className="text-center mb-6">
-        <p className="font-fairy text-2xl text-primary">şifa korusu</p>
-        <h1 className="font-display text-4xl text-secondary tracking-wide">Bedenini Dinle</h1>
+      <header className="text-center mb-6 relative">
+        <FairyMark
+          variant="lavender"
+          className="absolute right-0 top-0 w-20 h-20 animate-float-slow"
+        />
+        <h1 className="font-display text-4xl text-secondary tracking-wide">Şifa Korusu</h1>
+        <p className="font-fairy text-2xl text-primary mt-1">Bedenini Dinle</p>
         <p className="font-display italic text-secondary/70 text-sm mt-3 max-w-xs mx-auto">
           Döngünün her mevsiminde sana iyi gelecek nazik hareketler.
         </p>
@@ -238,6 +242,7 @@ export default function HealingGrove() {
           <span className="h-px w-12 bg-parchment-edge" />
         </div>
       </header>
+
 
       {/* Phase-aware reminder */}
       {phase && (
