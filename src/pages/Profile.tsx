@@ -2,8 +2,20 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { toast } from "@/hooks/use-toast";
 
 const stageLabels: Record<string, string> = {
   menstrual: "Menstrüel dönem",
@@ -18,11 +30,26 @@ export default function Profile() {
   const { user, signOut } = useAuth();
   const nav = useNavigate();
   const [profile, setProfile] = useState<any>(null);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     if (!user) return;
     supabase.from("profiles").select("*").eq("id", user.id).maybeSingle().then(({ data }) => setProfile(data));
   }, [user]);
+
+  const handleDelete = async () => {
+    setDeleting(true);
+    try {
+      const { error } = await supabase.functions.invoke("delete-account");
+      if (error) throw error;
+      await supabase.auth.signOut();
+      toast({ title: "Hesabın silindi", description: "Tüm bilgilerin temizlendi." });
+      nav("/");
+    } catch (e: any) {
+      toast({ title: "Silinemedi", description: e.message ?? "Bir hata oluştu", variant: "destructive" });
+      setDeleting(false);
+    }
+  };
 
   return (
     <div className="px-5 pt-10 pb-6">
@@ -44,6 +71,35 @@ export default function Profile() {
       >
         <LogOut className="w-4 h-4 mr-2" /> Köyden çık
       </Button>
+
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button
+            variant="outline"
+            className="w-full mt-3 rounded-full h-11 font-display border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
+          >
+            <Trash2 className="w-4 h-4 mr-2" /> Hesabı sil
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Hesabını silmek istiyor musun?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Bu işlem geri alınamaz. Profilin, döngü kayıtların ve tüm bilgilerin kalıcı olarak silinir. Tekrar katılmak istersen baştan kayıt olman gerekir.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={deleting}>Vazgeç</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDelete}
+              disabled={deleting}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {deleting ? "Siliniyor..." : "Evet, sil"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
