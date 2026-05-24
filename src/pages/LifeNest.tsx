@@ -3,6 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import { Baby, HeartPulse, Brain, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { FairyMark } from "@/components/FairyMark";
+
 
 type CategoryKey = "bakim" | "izlenim" | "mental" | "lohusalik";
 
