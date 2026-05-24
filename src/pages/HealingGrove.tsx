@@ -4,6 +4,8 @@ import { differenceInDays, parseISO } from "date-fns";
 import { Sparkles, Flower2, Wind, HeartPulse, Clock, ChevronRight, AlertTriangle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { FairyMark } from "@/components/FairyMark";
+
 
 type Exercise = {
   id: string;
